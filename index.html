@@ -62,10 +62,13 @@
         </p>
         <h1 class="font-bold text-4xl my-4">Plants for your Interior</h1>
         <div>
-          <button class="bg-black text-green-100 rounded-full p-3 mb-2">
+          <button
+            id="shop-now"
+            class="bg-black text-green-100 rounded-full p-3 mb-2"
+          >
             Shop Now
           </button>
-          <button class="border border-black rounded-full p-3">
+          <button id="watch-video" class="border border-black rounded-full p-3">
             Watch Video
           </button>
         </div>
@@ -255,7 +258,9 @@
         style="width: 80%"
       />
       <br />
-      <button class="bg-red-600 rounded text-white p-3 m-1 font-bold">Subscribe</button>
+      <button class="bg-red-600 rounded text-white p-3 m-1 font-bold">
+        Subscribe
+      </button>
     </section>
 
     <!--Footer-->
@@ -269,3 +274,25 @@
     </section>
   </body>
 </html>
+
+<style>
+  #shop-now {
+    transition: all 0.2s ease-in-out;
+  }
+
+  #watch-video {
+    transition: all 0.2s ease-in-out;
+  }
+
+  #shop-now:hover {
+    background-color: white;
+    border: 1px solid black;
+    color: black;
+  }
+
+  #watch-video:hover {
+    background-color: white;
+    border: 1px solid black;
+    color: black;
+  }
+</style>
