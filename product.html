@@ -18,45 +18,54 @@
       </p>
     </div>
     <nav
-      class="bg-green-100 p-3 z-10 flex justify-between items-center sticky top-6 shadow-xl"
+      class="bg-green-100 flex justify-between p-3 items-center shadow-xl sticky top-0 z-10"
     >
-      <h1 class="text-2xl font-medium drop-shadow-lg font-bold">Greenden</h1>
-      <div>
-        <div class="md:hidden">
-          <svg
-            id="menuicon"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            class="w-6 h-6"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-            />
-          </svg>
-        </div>
+      <h1 class="text-2xl font-bold">Greenden</h1>
 
-        <ul class="flex gap-5 hidden md:flex text-gray-600">
-          <li>
-            <a href="./index.html" class="hover:text-black hover:underline"
-              >Home</a
-            >
-          </li>
-          <li>
-            <a href="./product.html" class="text-black underline"
-              >Products</a
-            >
-          </li>
-          <li>
-            <a href="./contact.html" class="hover:text-black hover:underline"
-              >Contact</a
-            >
-          </li>
-        </ul>
+      <!-- Mobile Menu Button -->
+      <div id="menuBtn" class="md:hidden cursor-pointer">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-5 w-5"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+            clip-rule="evenodd"
+          />
+        </svg>
+      </div>
+
+      <!-- Desktop Menu -->
+      <ul class="hidden md:flex gap-5 text-gray-600">
+        <li >
+          <a href="./index.html" class="hover:text-black hover:underline">Home</a>
+        </li>
+        <li>
+          <a href="./product.html" class="text-black underline" 
+            >Products</a
+          >
+        </li>
+        <li>
+          <a href="./contact.html" class="hover:text-black hover:underline"
+            >Contact</a
+          >
+        </li>
+      </ul>
+
+      <!-- Mobile Menu -->
+
+      <div
+        id="mobileMenu"
+        class="fixed top-0 right-0 h-screen w-64 bg-green-100 shadow-lg p-5 hidden flex-col gap-5 md:hidden"
+      >
+        <span id="closeBtn" class="text-xl cursor-pointer self-end">✕</span>
+
+        <a href="./index.html" class="hover:underline">Home</a>
+        <a href="./product.html" class="text-black underline">Products</a>
+        <a href="./contact.html" class="hover:underline">Contact</a>
       </div>
     </nav>
 
@@ -107,15 +116,12 @@
           </svg>
         </div>
         <input
-  type="text"
-  placeholder="Search for a Product"
-  class="w-4/5 p-3 bg-green-50  placeholder-green-900"
-/>
-
+          type="text"
+          placeholder="Search for a Product"
+          class="w-4/5 p-3 bg-green-50 placeholder-green-900"
+        />
       </div>
-      <div
-        class="grid grid-cols-2 md:grid-cols-4 gap-5 col-span-2 mt-5"
-      >
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-5 col-span-2 mt-5">
         <div class="text-center">
           <img
             class="inline transform hover:-translate-y-2 hover:shadow-xl transition"
@@ -196,3 +202,25 @@
     </section>
   </body>
 </html>
+
+<script>
+  const menuBtn = document.getElementById("menuBtn");
+  const mobileMenu = document.getElementById("mobileMenu");
+  const closeBtn = document.getElementById("closeBtn");
+
+  menuBtn.addEventListener("click", () => {
+    mobileMenu.classList.remove("hidden");
+    mobileMenu.classList.add("flex");
+  });
+
+  closeBtn.addEventListener("click", () => {
+    mobileMenu.classList.add("hidden");
+    mobileMenu.classList.remove("flex");
+  });
+</script>
+
+<style>
+   #mobileMenu{
+        height: fit-content;
+       }
+</style>

@@ -24,36 +24,54 @@
       class="bg-green-100 flex justify-between p-3 items-center shadow-xl sticky top-0 z-10"
     >
       <h1 class="text-2xl font-bold">Greenden</h1>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="h-5 w-5 md:hidden"
-        viewBox="0 0 20 20"
-        fill="currentColor"
-      >
-        <path
-          fill-rule="evenodd"
-          d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-          clip-rule="evenodd"
-        />
-      </svg>
-      <ul class="flex gap-5 text-gray-600 hidden md:flex">
-        <li class="text-black underline cursor-pointer">
-          <a href="./index.html" class="hover:text-black hover:underline"
-            >Home</a
-          >
+
+      <!-- Mobile Menu Button -->
+      <div id="menuBtn" class="md:hidden cursor-pointer">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-5 w-5"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+            clip-rule="evenodd"
+          />
+        </svg>
+      </div>
+
+      <!-- Desktop Menu -->
+      <ul class="hidden md:flex gap-5 text-gray-600">
+        <li class="text-black underline">
+          <a href="./index.html">Home</a>
         </li>
-        <li class="hover:text-black hover:underline cursor-pointer">
+        <li>
           <a href="./product.html" class="hover:text-black hover:underline"
             >Products</a
           >
         </li>
-        <li class="hover:text-black hover:underline cursor-pointer">
+        <li>
           <a href="./contact.html" class="hover:text-black hover:underline"
             >Contact</a
           >
         </li>
       </ul>
+
+      <!-- Mobile Menu -->
+       
+      <div
+        id="mobileMenu"
+        class="fixed top-0 right-0 h-screen w-64 bg-green-100 shadow-lg p-5 hidden flex-col gap-5 md:hidden "
+      >
+        <span id="closeBtn" class="text-xl cursor-pointer self-end">✕</span>
+
+        <a href="./index.html" class="text-black underline">Home</a>
+        <a href="./product.html" class="hover:underline">Products</a>
+        <a href="./contact.html" class="hover:underline">Contact</a>
+      </div>
     </nav>
+
     <!-- middle -->
     <section class="bg-green-100 p-4 flex justify-center">
       <div>
@@ -295,4 +313,22 @@
     border: 1px solid black;
     color: black;
   }
+  #mobileMenu{
+        height: fit-content;
+       }
 </style>
+<script>
+  const menuBtn = document.getElementById("menuBtn");
+  const mobileMenu = document.getElementById("mobileMenu");
+  const closeBtn = document.getElementById("closeBtn");
+
+  menuBtn.addEventListener("click", () => {
+    mobileMenu.classList.remove("hidden");
+    mobileMenu.classList.add("flex");
+  });
+
+  closeBtn.addEventListener("click", () => {
+    mobileMenu.classList.add("hidden");
+    mobileMenu.classList.remove("flex");
+  });
+</script>
